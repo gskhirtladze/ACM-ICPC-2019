@@ -28,12 +28,3 @@ int main() {
         }
     printf("%.2f\n",res);
 }
-
-int lca(int a,int b) {
-    if (in[a] <= in[b] && out[b] <= out[a]) return a;
-    for (int i=17;i>=0;i--)
-        if (P[a][i])
-            if (!(in[P[a][i]] <= in[b] && out[b] <= out[P[a][i]]))
-                a=P[a][i];
-    return P[a][0];
-}

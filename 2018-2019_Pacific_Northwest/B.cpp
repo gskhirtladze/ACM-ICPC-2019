@@ -8,7 +8,7 @@ int i,j,a,b,c,d,x,m;
 long long res,A,B;
 
 int main() {
-    for (i=2;i<=1000000;i++) {
+    for (i=2;i<=10000000;i++) {
         if (lp[i] == 0) {
             pr.push_back(i);
             lp[i]=i;
