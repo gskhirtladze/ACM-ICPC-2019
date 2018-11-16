@@ -2,21 +2,36 @@
 
 using namespace std;
 
-double a,b,r,t;
+unsigned long long a,b,r,t,x;
 
 int main() {
     cin>>t;
     while (t--) {
         cin>>a>>b>>r;
-        a/=3.14159265359;
-        b/=3.14159265359;
-        r/=3.14159265359;
-        a=sqrt(a);
-        b=sqrt(b);
-        r=sqrt(r);
-        if (a+b+0.00000001 < r) {
+        if (a > b) swap(a,b);
+        if (a+b >= r) {
+            cout<<"NIE"<<endl;
+            continue;
+        }
+        if (4*b < r) {
             cout<<"TAK"<<endl;
-        } else
+            continue;
+        }
+        if (4*a >= r) {
+            cout<<"NIE"<<endl;
+            continue;
+        }
+        x=r-a-b;
+        if (x%2 == 0) {
+            x/=2;
+            if (a*b < x*x)
+                cout<<"TAK"<<endl;  else
+                cout<<"NIE"<<endl; 
+            continue;
+        }
+        x/=2;
+        if (a*b <= x*x+x)
+            cout<<"TAK"<<endl; else
             cout<<"NIE"<<endl; 
     }
 }
